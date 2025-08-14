@@ -30,7 +30,7 @@
                 </div>
                 <button class="btn btn-primary w-100">Login</button>
                 <p class="mt-3 text-center">
-                    Don't have an account? <a href="admin_dashboard.jsp">Sign up</a>
+                    Don't have an account? <a href="signup.jsp">Sign up</a>
                 </p>
             </form>
         </div>
