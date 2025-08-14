@@ -1,5 +1,6 @@
 package com.example.pahanaeduwebapplication.dao;
 
+import com.example.pahanaeduwebapplication.model.User;
 import com.example.pahanaeduwebapplication.util.DBConnection;
 
 import java.sql.Connection;
