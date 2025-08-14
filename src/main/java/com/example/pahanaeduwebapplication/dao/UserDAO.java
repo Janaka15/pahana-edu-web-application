@@ -19,4 +19,19 @@ public class UserDAO {
             return true; // safer to assume exists if error
         }
     }
+
+    public boolean register(User user) {
+        String sql = "INSERT INTO users (username, password, role, full_name) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getPassword());
+            stmt.setString(3, user.getRole());
+            stmt.setString(4, user.getFullName());
+            return stmt.executeUpdate() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
