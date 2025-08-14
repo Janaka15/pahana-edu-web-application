@@ -27,13 +27,13 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", user);
 
             if ("admin".equals(user.getRole())) {
-                response.sendRedirect("jsp/admin_dashboard.jsp");
+                response.sendRedirect("admin_dashboard.jsp");
             } else {
-                response.sendRedirect("jsp/cashier_dashboard.jsp");
+                response.sendRedirect("cashier_dashboard.jsp");
             }
         } else {
             request.setAttribute("error", "Invalid username or password!");
-            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
