@@ -27,7 +27,7 @@
     <div class="col-md-4 offset-md-4">
         <div class="card p-4 shadow">
             <h3 class="text-center">Signup</h3>
-            <form method="post" action="../signup" onsubmit="return validateForm()">
+            <form method="post" action="signup" onsubmit="return validateForm()">
                 <% if (request.getAttribute("error") != null) { %>
                 <div class="alert alert-danger"><%= request.getAttribute("error") %></div>
                 <% } %>
