@@ -16,7 +16,7 @@
     <div class="col-md-4 offset-md-4">
         <div class="card p-4 shadow">
             <h3 class="text-center">Login</h3>
-            <form method="post" action="../login">
+            <form method="post" action="login">
                 <% if (request.getAttribute("error") != null) { %>
                 <div class="alert alert-danger"><%= request.getAttribute("error") %></div>
                 <% } %>
