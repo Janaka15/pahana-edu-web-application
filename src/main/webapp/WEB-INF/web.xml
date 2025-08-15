@@ -54,4 +54,13 @@
         <url-pattern>/items</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CashierServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.CashierServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CashierServlet</servlet-name>
+        <url-pattern>/cashiers</url-pattern>
+    </servlet-mapping>
+
 </web-app>
