@@ -59,6 +59,14 @@
         </div>
       </a>
     </div>
+
+    <div class="col-md-3">
+      <a href="help.jsp" class="text-decoration-none">
+        <div class="card shadow text-center p-3">
+          <h5>Help</h5>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 </body>
