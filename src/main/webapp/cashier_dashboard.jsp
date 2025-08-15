@@ -24,7 +24,7 @@
     <a class="navbar-brand" href="#">Pahana Edu - Cashier</a>
     <div class="d-flex">
       <span class="navbar-text me-3 text-white">Welcome, <%= user.getFullName() %></span>
-      <a href="../logout" class="btn btn-danger btn-sm">Logout</a>
+      <a href="logout" class="btn btn-danger btn-sm">Logout</a>
     </div>
   </div>
 </nav>
