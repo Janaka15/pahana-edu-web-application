@@ -18,7 +18,11 @@
 <body class="bg-light">
 <div class="container mt-4">
     <h3>Customer List</h3>
-    <a href="customers?action=add" class="btn btn-success mb-3">Add New Customer</a>
+    <a href="customer_form.jsp" class="btn btn-success mb-3">Add New Customer</a>
+
+    <% if (customers == null || customers.isEmpty()) { %>
+    <div class="alert alert-info">No customers found.</div>
+    <% } else { %>
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
         <tr>
@@ -40,12 +44,14 @@
             <td><%= c.getEmail() %></td>
             <td>
                 <a href="customers?action=edit&id=<%= c.getAccountNo() %>" class="btn btn-warning btn-sm">Edit</a>
-                <a href="customers?action=delete&id=<%= c.getAccountNo() %>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this customer?');">Delete</a>
+                <a href="customers?action=delete&id=<%= c.getAccountNo() %>" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete this customer?');">Delete</a>
             </td>
         </tr>
         <% } %>
         </tbody>
     </table>
+    <% } %>
 </div>
 </body>
 </html>

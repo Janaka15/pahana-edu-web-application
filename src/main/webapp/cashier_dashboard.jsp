@@ -32,7 +32,7 @@
 <div class="container mt-4">
   <div class="row g-4">
     <div class="col-md-3">
-      <a href="customers.jsp" class="text-decoration-none">
+      <a href="customers" class="text-decoration-none">
         <div class="card shadow text-center p-3">
           <h5>Manage Customers</h5>
         </div>

@@ -38,7 +38,7 @@ public class CustomerServlet extends HttpServlet {
             default:
                 List<Customer> customers = customerDAO.getAllCustomers();
                 request.setAttribute("customers", customers);
-                request.getRequestDispatcher("jsp/customers.jsp").forward(request, response);
+                request.getRequestDispatcher("customers.jsp").forward(request, response);
                 break;
         }
     }
