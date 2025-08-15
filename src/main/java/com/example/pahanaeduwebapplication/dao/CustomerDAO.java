@@ -48,4 +48,25 @@ public class CustomerDAO {
             return false;
         }
     }
+
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<>();
+        String sql = "SELECT * FROM customers ORDER BY account_no DESC";
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Customer c = new Customer();
+                c.setAccountNo(rs.getInt("account_no"));
+                c.setName(rs.getString("name"));
+                c.setAddress(rs.getString("address"));
+                c.setTelephone(rs.getString("telephone"));
+                c.setEmail(rs.getString("email"));
+                customers.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
 }
