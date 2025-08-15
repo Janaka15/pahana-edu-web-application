@@ -69,4 +69,25 @@ public class CustomerDAO {
         }
         return customers;
     }
+
+    public Customer getCustomerById(int id) {
+        String sql = "SELECT * FROM customers WHERE account_no = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Customer c = new Customer();
+                c.setAccountNo(rs.getInt("account_no"));
+                c.setName(rs.getString("name"));
+                c.setAddress(rs.getString("address"));
+                c.setTelephone(rs.getString("telephone"));
+                c.setEmail(rs.getString("email"));
+                return c;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
