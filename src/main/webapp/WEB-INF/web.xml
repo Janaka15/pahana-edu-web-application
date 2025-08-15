@@ -62,5 +62,22 @@
         <servlet-name>CashierServlet</servlet-name>
         <url-pattern>/cashiers</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>BillingServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.BillingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BillingServlet</servlet-name>
+        <url-pattern>/billing</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReceiptServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.ReceiptServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReceiptServlet</servlet-name>
+        <url-pattern>/receipt</url-pattern>
+    </servlet-mapping>
 
 </web-app>
