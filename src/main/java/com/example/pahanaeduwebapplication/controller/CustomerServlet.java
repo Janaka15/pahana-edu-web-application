@@ -28,7 +28,7 @@ public class CustomerServlet extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Customer existingCustomer = customerDAO.getCustomerById(id);
                 request.setAttribute("customer", existingCustomer);
-                request.getRequestDispatcher("jsp/customer_form.jsp").forward(request, response);
+                request.getRequestDispatcher("customer_form.jsp").forward(request, response);
                 break;
             case "delete":
                 int deleteId = Integer.parseInt(request.getParameter("id"));

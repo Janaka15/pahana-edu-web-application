@@ -46,7 +46,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="items.jsp" class="text-decoration-none">
+      <a href="items" class="text-decoration-none">
         <div class="card shadow text-center p-3">
           <h5>Manage Items</h5>
         </div>

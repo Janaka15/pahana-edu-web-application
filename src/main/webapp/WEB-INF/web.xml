@@ -44,4 +44,14 @@
         <url-pattern>/customers</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ItemServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.ItemServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ItemServlet</servlet-name>
+        <url-pattern>/items</url-pattern>
+    </servlet-mapping>
+
 </web-app>
