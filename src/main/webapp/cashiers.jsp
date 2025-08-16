@@ -19,7 +19,7 @@
 <%
   String role = (String) session.getAttribute("role");
   String dashboardPage = "cashier_dashboard.jsp"; // default
-  if ("admin".equals(role)) {
+  if ("admin".equalsIgnoreCase(role)) {
     dashboardPage = "admin_dashboard.jsp";
   }
 %>

@@ -9,7 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BillDAO {
     public int saveBillAndReturnId(Bill bill) {
@@ -156,6 +158,51 @@ public class BillDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public double getTotalSales() {
+        String sql = "SELECT SUM(total) AS totalSales FROM bills";
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()) {
+                return rs.getDouble("totalSales");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    public Map<String, Double> getSalesByCashier() {
+        Map<String, Double> sales = new HashMap<>();
+        String sql = "SELECT created_by, SUM(total) AS totalSales FROM bills GROUP BY created_by";
+
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                sales.put(rs.getString("created_by"), rs.getDouble("totalSales"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sales;
+    }
+
+    public double getSalesByDateRange(String startDate, String endDate) {
+        String sql = "SELECT SUM(total) AS totalSales FROM bills WHERE DATE(bill_date) BETWEEN ? AND ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, startDate);
+            stmt.setString(2, endDate);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble("totalSales");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 }

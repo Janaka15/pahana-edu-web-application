@@ -10,6 +10,13 @@
 <%
     List<Item> items = (List<Item>) request.getAttribute("items");
 %>
+<%
+    String role = (String) session.getAttribute("role");
+    String dashboardPage = "cashier_dashboard.jsp"; // default
+    if ("admin".equalsIgnoreCase(role)) {
+        dashboardPage = "admin_dashboard.jsp";
+    }
+%>
 <html>
 <head>
     <title>Billing</title>
@@ -65,8 +72,20 @@
                 <td><input type="number" step="0.01" name="price" class="form-control" readonly required></td>
                 <td><input type="number" name="quantity" class="form-control" min="1" value="1" onchange="updateLineTotal(this.closest('tr')); updateGrandTotal();" required></td>
                 <td class="lineTotal">0.00</td>
+                 <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">❌ Remove</button></td>
             `;
             table.appendChild(newRow);
+        }
+        function removeRow(button) {
+            let row = button.closest("tr");
+            let table = document.getElementById("billTable").getElementsByTagName('tbody')[0];
+
+            if (table.rows.length > 1) {
+                row.remove();
+                updateGrandTotal();
+            } else {
+                alert("At least one item is required in the bill.");
+            }
         }
 
     </script>
@@ -82,6 +101,7 @@
                 <th>Price (LKR)</th>
                 <th>Quantity</th>
                 <th>Total (LKR)</th>
+                <th>Remove</th>
             </tr>
             </thead>
             <tbody>
@@ -98,6 +118,7 @@
                 <td><input type="number" step="0.01" name="price" class="form-control" readonly required></td>
                 <td><input type="number" name="quantity" class="form-control" min="1" value="1" onchange="updateLineTotal(this.closest('tr')); updateGrandTotal();" required></td>
                 <td class="lineTotal">0.00</td>
+                <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">❌ Remove</button></td>
             </tr>
             </tbody>
         </table>
@@ -119,7 +140,9 @@
         <button type="submit" class="btn btn-primary mt-2">Finalize Bill</button>
 
     </form>
+    <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
 </div>
+
 
 <script>
     // Initialize first row price and totals when page loads

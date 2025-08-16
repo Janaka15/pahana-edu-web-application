@@ -89,4 +89,14 @@
         <url-pattern>/bills</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminReportServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.AdminReportServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminReportServlet</servlet-name>
+        <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+
 </web-app>

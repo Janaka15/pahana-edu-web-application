@@ -13,7 +13,7 @@
 <%
   String role = (String) session.getAttribute("role");
   String dashboardPage = "cashier_dashboard.jsp"; // default
-  if ("admin".equals(role)) {
+  if ("admin".equalsIgnoreCase(role)) {
     dashboardPage = "admin_dashboard.jsp";
   }
 %>
@@ -53,12 +53,14 @@
         <a href="bills?action=edit&id=<%= bill.getId() %>" class="btn btn-warning btn-sm">Edit</a>
         <a href="bills?action=delete&id=<%= bill.getId() %>" class="btn btn-danger btn-sm"
            onclick="return confirm('Are you sure you want to delete this bill?');">Delete</a>
+        <a href="reprintBill?id=<%= bill.getId() %>" class="btn btn-sm btn-info">🖨 Reprint</a>
       </td>
     </tr>
     <% } } %>
     </tbody>
   </table>
   <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
+
 </div>
 </body>
 </html>

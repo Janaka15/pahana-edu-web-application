@@ -20,7 +20,7 @@
 <%
     String role = (String) session.getAttribute("role");
     String dashboardPage = "cashier_dashboard.jsp"; // default
-    if ("admin".equals(role)) {
+    if ("admin".equalsIgnoreCase(role)) {
         dashboardPage = "admin_dashboard.jsp";
     }
 %>
@@ -71,7 +71,9 @@
         </tbody>
     </table>
     <% } %>
-    <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
+
+        <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
+
 </div>
 </body>
 </html>
