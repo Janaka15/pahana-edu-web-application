@@ -205,4 +205,29 @@ public class BillDAO {
         return 0;
     }
 
+    public List<Bill> getBillsByCashier(String cashierUsername) {
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT * FROM bills WHERE created_by = ? ORDER BY bill_date DESC";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cashierUsername);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setId(rs.getInt("id"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setTotal(rs.getDouble("total"));
+                bill.setAmountGiven(rs.getDouble("amount_given"));
+                bill.setBalance(rs.getDouble("balance"));
+                bill.setCreatedBy(rs.getString("created_by"));
+                bills.add(bill);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bills;
+    }
+
 }

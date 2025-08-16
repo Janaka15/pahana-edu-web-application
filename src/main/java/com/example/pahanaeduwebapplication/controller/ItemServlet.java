@@ -39,6 +39,7 @@ public class ItemServlet extends HttpServlet {
                 List<Item> items = itemDAO.getAllItems();
                 request.setAttribute("items", items);
                 request.getRequestDispatcher("items.jsp").forward(request, response);
+
                 break;
         }
     }

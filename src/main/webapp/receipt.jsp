@@ -9,6 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Bill bill = (Bill) request.getAttribute("bill");
+    Boolean isReprint = (Boolean) request.getAttribute("isReprint");
+    if (isReprint == null) isReprint = false;
+%>
+<%
+    String role = (String) session.getAttribute("role");
+    String dashboardPage = "cashier_dashboard.jsp"; // default
+    if ("admin".equalsIgnoreCase(role)) {
+        dashboardPage = "admin_dashboard.jsp";
+    }
 %>
 <html>
 <head>
@@ -19,6 +28,9 @@
 <div class="container mt-4">
     <div class="card p-4">
         <h3 class="text-center">Pahana Edu Bookshop</h3>
+        <% if (isReprint) { %>
+        <h6 class="text-center text-danger">--- REPRINT COPY ---</h6>
+        <% } %>
         <p><strong>Bill No:</strong> <%= bill.getId() %></p>
         <p><strong>Date:</strong> <%= bill.getBillDate() %></p>
         <p><strong>Cashier:</strong> <%= bill.getCreatedBy() %></p>
@@ -50,7 +62,7 @@
         <div class="text-center mt-3">
             <button onclick="window.print()" class="btn btn-primary">Print Receipt</button>
             <a href="billing" class="btn btn-secondary">New Bill</a>
-            <a href="admin_dashboard.jsp" class="btn btn-secondary">⬅ Back to Dashboard</a>
+            <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
         </div>
     </div>
 </div>

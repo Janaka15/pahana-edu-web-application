@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
+            session.setAttribute("username", user.getUsername());
 
             if ("admin".equals(user.getRole())) {
                 response.sendRedirect("admin_dashboard.jsp");

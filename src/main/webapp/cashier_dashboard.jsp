@@ -16,7 +16,28 @@
 <html>
 <head>
   <title>Cashier Dashboard - Pahana Edu</title>
+  <style>
+    .hover-shadow:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    .hover-shadow:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-text-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -31,38 +52,42 @@
 
 <div class="container mt-4">
   <div class="row g-4">
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-4 col-sm-6">
       <a href="customers" class="text-decoration-none">
-        <div class="card shadow text-center p-3">
+        <div class="card shadow text-center p-4 hover-shadow card-text-center">
+          <i class="bi bi-people-fill display-4 text-success mb-3"></i>
           <h5>Manage Customers</h5>
         </div>
       </a>
     </div>
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-4 col-sm-6">
       <a href="billing" class="text-decoration-none">
-        <div class="card shadow text-center p-3">
+        <div class="card shadow text-center p-4 hover-shadow card-text-center">
+          <i class="bi bi-receipt-cutoff display-4 text-primary mb-3"></i>
           <h5>Create Bill</h5>
         </div>
       </a>
     </div>
-    <div class="col-md-3">
-      <a href="my_bills.jsp" class="text-decoration-none">
-        <div class="card shadow text-center p-3">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <a href="salesHistory" class="text-decoration-none">
+        <div class="card shadow text-center p-4 hover-shadow card-text-center">
+          <i class="bi bi-graph-up display-4 text-warning mb-3"></i>
           <h5>My Sales History</h5>
         </div>
       </a>
     </div>
-    <div class="col-md-3">
-      <a href="help.jsp" class="text-decoration-none">
-        <div class="card shadow text-center p-3">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      <a href="viewStock" class="text-decoration-none">
+        <div class="card shadow text-center p-4 hover-shadow card-text-center">
+          <i class="bi bi-box-seam display-4 text-info mb-3"></i>
           <h5>View Stock</h5>
         </div>
       </a>
     </div>
-
-    <div class="col-md-3">
+    <div class="col-lg-3 col-md-4 col-sm-6">
       <a href="help.jsp" class="text-decoration-none">
-        <div class="card shadow text-center p-3">
+        <div class="card shadow text-center p-4 hover-shadow card-text-center">
+          <i class="bi bi-question-circle display-4 text-secondary mb-3"></i>
           <h5>Help</h5>
         </div>
       </a>

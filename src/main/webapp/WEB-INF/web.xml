@@ -98,5 +98,23 @@
         <servlet-name>AdminReportServlet</servlet-name>
         <url-pattern>/report</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewStockServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.ViewStockServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewStockServlet</servlet-name>
+        <url-pattern>/viewStock</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SalesHistoryServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.SalesHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SalesHistoryServlet</servlet-name>
+        <url-pattern>/salesHistory</url-pattern>
+    </servlet-mapping>
 
 </web-app>
