@@ -79,5 +79,14 @@
         <servlet-name>ReceiptServlet</servlet-name>
         <url-pattern>/receipt</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminBillServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.ListBillServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminBillServlet</servlet-name>
+        <url-pattern>/bills</url-pattern>
+    </servlet-mapping>
 
 </web-app>

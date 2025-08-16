@@ -39,7 +39,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="billing.jsp" class="text-decoration-none">
+      <a href="billing" class="text-decoration-none">
         <div class="card shadow text-center p-3">
           <h5>Create Bill</h5>
         </div>

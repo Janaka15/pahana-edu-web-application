@@ -94,4 +94,68 @@ public class BillDAO {
         }
         return bill;
     }
+
+    public List<Bill> getAllBills() {
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT * FROM bills ORDER BY bill_date DESC";
+
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setId(rs.getInt("id"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setTotal(rs.getDouble("total"));
+                bill.setAmountGiven(rs.getDouble("amount_given"));
+                bill.setBalance(rs.getDouble("balance"));
+                bill.setCreatedBy(rs.getString("created_by"));
+                bills.add(bill);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bills;
+    }
+
+    public void deleteBill(int billId) {
+        String deleteItemsSQL = "DELETE FROM bill_items WHERE bill_id = ?";
+        String deleteBillSQL = "DELETE FROM bills WHERE id = ?";
+
+        try (Connection conn = DBConnection.getConnection()) {
+            conn.setAutoCommit(false);
+
+            PreparedStatement stmt1 = conn.prepareStatement(deleteItemsSQL);
+            stmt1.setInt(1, billId);
+            stmt1.executeUpdate();
+
+            PreparedStatement stmt2 = conn.prepareStatement(deleteBillSQL);
+            stmt2.setInt(1, billId);
+            stmt2.executeUpdate();
+
+            conn.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateBill(Bill bill) {
+        String sql = "UPDATE bills SET total=?, amount_given=?, balance=?, created_by=? WHERE id=?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setDouble(1, bill.getTotal());
+            stmt.setDouble(2, bill.getAmountGiven());
+            stmt.setDouble(3, bill.getBalance());
+            stmt.setString(4, bill.getCreatedBy());
+            stmt.setInt(5, bill.getId());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

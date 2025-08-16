@@ -17,6 +17,13 @@
     }
     boolean isAdmin = "admin".equals(user.getRole());
 %>
+<%
+    String role = (String) session.getAttribute("role");
+    String dashboardPage = "cashier_dashboard.jsp"; // default
+    if ("admin".equals(role)) {
+        dashboardPage = "admin_dashboard.jsp";
+    }
+%>
 <html>
 <head>
     <title>Manage Stock</title>
@@ -64,6 +71,7 @@
         </tbody>
     </table>
     <% } %>
+    <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
 </div>
 </body>
 </html>

@@ -10,6 +10,13 @@
 <%
     List<Customer> customers = (List<Customer>) request.getAttribute("customers");
 %>
+<%
+    String role = (String) session.getAttribute("role");
+    String dashboardPage = "cashier_dashboard.jsp"; // default
+    if ("admin".equals(role)) {
+        dashboardPage = "admin_dashboard.jsp";
+    }
+%>
 <html>
 <head>
     <title>Manage Customers</title>
@@ -52,6 +59,7 @@
         </tbody>
     </table>
     <% } %>
+    <a href="<%= dashboardPage %>" class="btn btn-secondary">⬅ Back to Dashboard</a>
 </div>
 </body>
 </html>

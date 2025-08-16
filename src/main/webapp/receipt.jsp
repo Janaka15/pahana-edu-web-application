@@ -50,6 +50,7 @@
         <div class="text-center mt-3">
             <button onclick="window.print()" class="btn btn-primary">Print Receipt</button>
             <a href="billing" class="btn btn-secondary">New Bill</a>
+            <a href="admin_dashboard.jsp" class="btn btn-secondary">⬅ Back to Dashboard</a>
         </div>
     </div>
 </div>

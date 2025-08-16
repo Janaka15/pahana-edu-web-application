@@ -117,6 +117,7 @@
             <input type="number" step="0.01" name="balance" id="balance" class="form-control" readonly>
         </div>
         <button type="submit" class="btn btn-primary mt-2">Finalize Bill</button>
+
     </form>
 </div>
 

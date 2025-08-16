@@ -60,7 +60,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="bills.jsp" class="text-decoration-none">
+      <a href="bills" class="text-decoration-none">
         <div class="card shadow text-center p-3">
           <h5>View All Bills</h5>
         </div>
