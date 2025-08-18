@@ -117,4 +117,13 @@
         <url-pattern>/salesHistory</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ReprintBillServlet</servlet-name>
+        <servlet-class>com.example.pahanaeduwebapplication.controller.ReprintBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReprintBillServlet</servlet-name>
+        <url-pattern>/reprintBill</url-pattern>
+    </servlet-mapping>
+
 </web-app>

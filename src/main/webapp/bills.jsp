@@ -53,7 +53,7 @@
         <a href="bills?action=edit&id=<%= bill.getId() %>" class="btn btn-warning btn-sm">Edit</a>
         <a href="bills?action=delete&id=<%= bill.getId() %>" class="btn btn-danger btn-sm"
            onclick="return confirm('Are you sure you want to delete this bill?');">Delete</a>
-          <a href="receipt?id=<%= bill.getId() %>&reprint=true" class="btn btn-sm btn-info">🖨 Reprint</a>
+        <a href="reprintBill?id=<%= bill.getId() %>&reprint=true" class="btn btn-sm btn-info">🖨 Reprint</a>
       </td>
     </tr>
     <% } } %>

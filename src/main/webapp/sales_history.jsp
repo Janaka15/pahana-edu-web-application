@@ -44,7 +44,7 @@
       <td><%= bill.getAmountGiven() %></td>
       <td><%= bill.getBalance() %></td>
       <td>
-        <a href="receipt?id=<%= bill.getId() %>&reprint=true" class="btn btn-sm btn-info">🖨 Reprint</a>
+        <a href="reprintBill?id=<%= bill.getId() %>&reprint=true" class="btn btn-sm btn-info">🖨 Reprint</a>
       </td>
     </tr>
     <%

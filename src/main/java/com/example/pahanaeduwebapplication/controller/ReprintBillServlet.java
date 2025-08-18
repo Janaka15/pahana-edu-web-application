@@ -9,14 +9,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class ReceiptServlet extends HttpServlet {
-    private final BillDAO billDAO = new BillDAO();
+public class ReprintBillServlet extends HttpServlet {
+    private BillDAO billDAO = new BillDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int billId = Integer.parseInt(request.getParameter("billId"));
-        Bill bill = billDAO.getBillWithItems(billId); // NEW METHOD
+
+        int billId = Integer.parseInt(request.getParameter("id"));
+        Bill bill = billDAO.getBillWithItems(billId);
+
+        if (bill == null) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Bill not found");
+            return;
+        }
+        String reprint = request.getParameter("reprint");
+        if ("true".equalsIgnoreCase(reprint)) {
+            request.setAttribute("isReprint", true);
+        }
+
         request.setAttribute("bill", bill);
         request.getRequestDispatcher("receipt.jsp").forward(request, response);
     }
