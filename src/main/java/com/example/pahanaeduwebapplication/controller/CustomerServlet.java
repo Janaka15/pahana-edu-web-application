@@ -22,7 +22,7 @@ public class CustomerServlet extends HttpServlet {
 
         switch (action) {
             case "add":
-                request.getRequestDispatcher("jsp/customer_form.jsp").forward(request, response);
+                request.getRequestDispatcher("customer_form.jsp").forward(request, response);
                 break;
             case "edit":
                 int id = Integer.parseInt(request.getParameter("id"));

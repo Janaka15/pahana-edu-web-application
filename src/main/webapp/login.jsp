@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Login - Pahana Edu</title>
@@ -55,6 +56,7 @@
         }
     </style>
 </head>
+
 <body>
 <div class="login-card">
     <div class="login-header">
@@ -84,5 +86,15 @@
         </div>
     </form>
 </div>
+<%
+    String success = request.getParameter("success");
+%>
+<script>
+    window.onload = function () {
+        <% if ("1".equals(success)) { %>
+        alert("Signup successful! Please login now.");
+        <% } %>
+    };
+</script>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class SignupServlet extends HttpServlet {
         // Server-side password match check
         if (!password.equals(confirmPassword)) {
             request.setAttribute("error", "Passwords do not match!");
-            request.getRequestDispatcher("jsp/signup.jsp").forward(request, response);
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
             return;
         }
 

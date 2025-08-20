@@ -113,5 +113,14 @@
     </div>
   </div>
 </div>
+<% if (session.getAttribute("successMessage") != null) { %>
+<script>
+  alert("<%= session.getAttribute("successMessage") %>");
+</script>
+<%
+  // remove message after showing once
+  session.removeAttribute("successMessage");
+%>
+<% } %>
 </body>
 </html>
